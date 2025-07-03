@@ -1,0 +1,18 @@
+version: "3.8"
+
+services:
+  adapters:
+    build: ./rnapdbee-adapters
+    image: rnapdbee/rnapdbee-adapters
+
+  backend:
+    build: ./rnapdbee-backend
+    image: rnapdbee/rnapdbee-backend
+
+  engine:
+    build: ./rnapdbee-engine
+    image: rnapdbee/rnapdbee-engine
+
+  frontend:
+    build: ./rnapdbee-frontend
+    image: rnapdbee/rnapdbee-frontend
