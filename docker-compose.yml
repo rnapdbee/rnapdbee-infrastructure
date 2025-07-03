@@ -1,0 +1,63 @@
+version: "3.9"
+
+services:
+  mongoDB:
+    container_name: rnapdbee-mongoDB-container
+    image: mongo:4.4.6
+    environment:
+      # Username and password can not be changed after volume creation, saved in volume!
+      - MONGO_INITDB_ROOT_USERNAME=rnapdbee
+      - MONGO_INITDB_ROOT_PASSWORD=Xdy0s3XvTLBxACdJrAfb
+    volumes:
+      - rnapdbee-mongoDB-volume:/data/db
+
+  adapters:
+    build: ./rnapdbee-adapters
+    image: rnapdbee/rnapdbee-adapters
+    env_file:
+      - ./rnapdbee-adapters/.env
+
+  backend:
+    container_name: rnapdbee-backend-container
+    build: ./rnapdbee-backend
+    image: rnapdbee/rnapdbee-backend
+    depends_on:
+      - mongoDB
+    environment:
+      - spring_data_mongodb_authentication-database=admin
+      - spring_data_mongodb_username=rnapdbee
+      - spring_data_mongodb_password=Xdy0s3XvTLBxACdJrAfb
+      - spring_data_mongodb_database=backend-db
+      - spring_data_mongodb_port=27017
+      - spring_data_mongodb_host=rnapdbee-mongoDB-container
+      - rnapdbee_engine_global_host=http://rnapdbee-engine-container:8081/calculation-api/
+      - document_storage_days=14
+      - svg_images_directory_path=/images
+    volumes:
+      - rnapdbee-backend-volume:/images
+
+  engine:
+    container_name: rnapdbee-engine-container
+    build: ./rnapdbee-engine
+    image: rnapdbee/rnapdbee-engine
+
+  frontend:
+    build: ./rnapdbee-frontend
+    image: rnapdbee/rnapdbee-frontend
+
+  nginx:
+    image: nginx:latest
+    container_name: rnapdbee-nginx-container
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend
+      - adapters
+
+volumes:
+  rnapdbee-mongoDB-volume:
+  rnapdbee-backend-volume:
+

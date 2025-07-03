@@ -1,0 +1,12 @@
+[submodule "rnapdbee-engine"]
+	path = rnapdbee-engine
+	url = https://github.com/rnapdbee/rnapdbee-engine
+[submodule "rnapdbee-backend"]
+	path = rnapdbee-backend
+	url = https://github.com/rnapdbee/rnapdbee-backend
+[submodule "rnapdbee-adapters"]
+	path = rnapdbee-adapters
+	url = https://github.com/rnapdbee/rnapdbee-adapters
+[submodule "rnapdbee-frontend"]
+	path = rnapdbee-frontend
+	url = https://github.com/rnapdbee/rnapdbee-frontend
