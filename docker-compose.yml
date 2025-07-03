@@ -16,6 +16,10 @@ services:
   adapters:
     build: ./rnapdbee-adapters
     image: rnapdbee/rnapdbee-adapters
+    ports:
+      - "8000:80"
+    env_file:
+      - ./rnapdbee-adapters/.env
 
   backend:
     container_name: rnapdbee-backend-container
@@ -42,10 +46,14 @@ services:
     container_name: rnapdbee-engine-container
     build: ./rnapdbee-engine
     image: rnapdbee/rnapdbee-engine
+    ports:
+      - "8081:8081"
 
   frontend:
     build: ./rnapdbee-frontend
     image: rnapdbee/rnapdbee-frontend
+    ports:
+      - "4200:80"
 
 volumes:
   rnapdbee-mongoDB-volume:
