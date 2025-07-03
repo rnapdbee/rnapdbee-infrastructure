@@ -16,8 +16,6 @@ services:
   adapters:
     build: ./rnapdbee-adapters
     image: rnapdbee/rnapdbee-adapters
-    ports:
-      - "8000:80"
     env_file:
       - ./rnapdbee-adapters/.env
 
@@ -37,8 +35,6 @@ services:
       - rnapdbee_engine_global_host=http://rnapdbee-engine-container:8081/calculation-api/
       - document_storage_days=14
       - svg_images_directory_path=/images
-    ports:
-      - "8080:8080"
     volumes:
       - rnapdbee-backend-volume:/images
 
@@ -46,14 +42,10 @@ services:
     container_name: rnapdbee-engine-container
     build: ./rnapdbee-engine
     image: rnapdbee/rnapdbee-engine
-    ports:
-      - "8081:8081"
 
   frontend:
     build: ./rnapdbee-frontend
     image: rnapdbee/rnapdbee-frontend
-    ports:
-      - "4200:80"
 
   nginx:
     image: nginx:latest
@@ -65,6 +57,7 @@ services:
     depends_on:
       - frontend
       - backend
+      - adapters
 
 volumes:
   rnapdbee-mongoDB-volume:
