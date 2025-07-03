@@ -55,6 +55,17 @@ services:
     ports:
       - "4200:80"
 
+  nginx:
+    image: nginx:latest
+    container_name: rnapdbee-nginx-container
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - frontend
+      - backend
+
 volumes:
   rnapdbee-mongoDB-volume:
   rnapdbee-backend-volume:
