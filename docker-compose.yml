@@ -8,8 +8,6 @@ services:
       # Username and password can not be changed after volume creation, saved in volume!
       - MONGO_INITDB_ROOT_USERNAME=rnapdbee
       - MONGO_INITDB_ROOT_PASSWORD=Xdy0s3XvTLBxACdJrAfb
-    ports:
-      - "27017:27017"
     volumes:
       - rnapdbee-mongoDB-volume:/data/db
 
