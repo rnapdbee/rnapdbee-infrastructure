@@ -51,7 +51,3 @@ volumes:
   rnapdbee-mongoDB-volume:
   rnapdbee-backend-volume:
 
-networks:
-  default:
-    name: rnapdbee-network
-    external: true
