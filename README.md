@@ -14,6 +14,12 @@ If you have already cloned the repository without submodules, you can initialize
 git submodule update --init --recursive
 ```
 
+To pull the latest changes for the main repository and all submodules, use:
+
+```bash
+git pull --recurse-submodules
+```
+
 ## Usage
 
 To build and start all services, run:
