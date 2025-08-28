@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  backend:
+    ports:
+      - "8080:8080"
+
+  frontend:
+    ports:
+      - "4200:4200"
