@@ -14,18 +14,42 @@ If you have already cloned the repository without submodules, you can initialize
 git submodule update --init --recursive
 ```
 
-## Usage
-
-To build and start all services, run:
+To pull the latest changes for the main repository and all submodules, use:
 
 ```bash
-docker-compose up --build -d
+git pull --recurse-submodules
 ```
 
-The application will be available at [http://localhost](http://localhost).
+## Usage
+
+### Local Development
+
+For local development, use the following command to build and start all services:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+```
+
+The development environment runs a reverse proxy as part of Docker Compose without HTTPS support. The application will be available at [http://localhost](http://localhost).
 
 To stop the services, use:
 
 ```bash
-docker-compose down
+docker compose -f docker-compose.yml -f docker-compose.dev.yml down
+```
+
+### Production
+
+For production deployment, use the following command:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build
+```
+
+This setup expects that a reverse proxy with Let's Encrypt is installed and configured on the host OS.
+
+To stop the services, use:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml down
 ```
