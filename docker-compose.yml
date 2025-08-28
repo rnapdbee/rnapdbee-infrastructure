@@ -1,7 +1,7 @@
 services:
   mongoDB:
-    container_name: rnapdbee-mongoDB-container
     image: mongo:4.4.6
+    container_name: rnapdbee-mongoDB-container
     environment:
       # Username and password can not be changed after volume creation, saved in volume!
       - MONGO_INITDB_ROOT_USERNAME=rnapdbee
@@ -11,12 +11,11 @@ services:
 
   adapters:
     build: ./rnapdbee-adapters
-    image: rnapdbee/rnapdbee-adapters
+    container_name: rnapdbee-adapters-container
 
   backend:
-    container_name: rnapdbee-backend-container
     build: ./rnapdbee-backend
-    image: rnapdbee/rnapdbee-backend
+    container_name: rnapdbee-backend-container
     depends_on:
       - mongoDB
     environment:
@@ -33,15 +32,13 @@ services:
       - rnapdbee-backend-volume:/images
 
   engine:
-    container_name: rnapdbee-engine-container
     build: ./rnapdbee-engine
-    image: rnapdbee/rnapdbee-engine
+    container_name: rnapdbee-engine-container
 
   frontend:
     build: ./rnapdbee-frontend
-    image: rnapdbee/rnapdbee-frontend
+    container_name: rnapdbee-frontend-container
 
 volumes:
   rnapdbee-mongoDB-volume:
   rnapdbee-backend-volume:
-
