@@ -22,16 +22,34 @@ git pull --recurse-submodules
 
 ## Usage
 
-To build and start all services, run:
+### Local Development
+
+For local development, use the following command to build and start all services:
 
 ```bash
-docker-compose up --build -d
+docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 ```
 
-The application will be available at [http://localhost](http://localhost).
+The development environment runs a reverse proxy as part of Docker Compose without HTTPS support. The application will be available at [http://localhost](http://localhost).
 
 To stop the services, use:
 
 ```bash
-docker-compose down
+docker compose -f docker-compose.yml -f docker-compose.dev.yml down
+```
+
+### Production
+
+For production deployment, use the following command:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml up --build
+```
+
+This setup expects that a reverse proxy with Let's Encrypt is installed and configured on the host OS.
+
+To stop the services, use:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.prod.yml down
 ```
