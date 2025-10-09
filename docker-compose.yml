@@ -36,7 +36,6 @@ services:
     container_name: rnapdbee-engine-container
 
   frontend:
-    build: ./rnapdbee-frontend
     container_name: rnapdbee-frontend-container
 
 volumes:

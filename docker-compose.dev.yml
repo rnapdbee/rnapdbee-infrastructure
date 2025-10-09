@@ -10,3 +10,9 @@ services:
       - frontend
       - backend
       - adapters
+
+  frontend:
+    build:
+      context: ./rnapdbee-frontend
+      args:
+        BUILD_CONF: development
