@@ -8,10 +8,12 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=Xdy0s3XvTLBxACdJrAfb
     volumes:
       - rnapdbee-mongoDB-volume:/data/db
+    restart: on-failure
 
   adapters:
     build: ./rnapdbee-adapters
     container_name: rnapdbee-adapters-container
+    restart: on-failure
 
   backend:
     build: ./rnapdbee-backend
@@ -30,13 +32,16 @@ services:
       - svg_images_directory_path=/images
     volumes:
       - rnapdbee-backend-volume:/images
+    restart: on-failure
 
   engine:
     build: ./rnapdbee-engine
     container_name: rnapdbee-engine-container
+    restart: on-failure
 
   frontend:
     container_name: rnapdbee-frontend-container
+    restart: on-failure
 
 volumes:
   rnapdbee-mongoDB-volume:
