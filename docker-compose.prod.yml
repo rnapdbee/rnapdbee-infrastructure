@@ -10,3 +10,35 @@ services:
         BUILD_CONF: production
     ports:
       - "4200:80"
+
+  cli2rest-barnaba:
+    deploy:
+      replicas: 3
+
+  cli2rest-bpnet:
+    deploy:
+      replicas: 3
+
+  cli2rest-fr3d:
+    deploy:
+      replicas: 3
+
+  cli2rest-inkscape:
+    deploy:
+      replicas: 3
+
+  cli2rest-maxit:
+    deploy:
+      replicas: 3
+
+  cli2rest-mc-annotate:
+    deploy:
+      replicas: 3
+
+  cli2rest-rchie:
+    deploy:
+      replicas: 3
+
+  cli2rest-rnaview:
+    deploy:
+      replicas: 3
