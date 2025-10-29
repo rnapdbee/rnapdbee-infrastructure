@@ -117,6 +117,7 @@ services:
       - rnapdbee_engine_global_host=http://rnapdbee-engine-container:8081/calculation-api/
       - document_storage_days=14
       - svg_images_directory_path=/images
+      - CLI2REST_INKSCAPE_URL=http://load-balancer/cli2rest-inkscape
     volumes:
       - rnapdbee-backend-volume:/images
     restart: on-failure
