@@ -31,6 +31,8 @@ services:
         condition: service_healthy
       cli2rest-rnaview:
         condition: service_healthy
+      cli2rest-varna-tz:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost/"]
       start_period: 30s
@@ -85,6 +87,12 @@ services:
       replicas: 1
     restart: on-failure
 
+  cli2rest-varna-tz:
+    image: ghcr.io/tzok/cli2rest-varna-tz
+    deploy:
+      replicas: 1
+    restart: on-failure
+
   adapters:
     build: ./rnapdbee-adapters
     container_name: rnapdbee-adapters-container
@@ -125,6 +133,8 @@ services:
   engine:
     build: ./rnapdbee-engine
     container_name: rnapdbee-engine-container
+    environment:
+      - CLI2REST_VARNA_TZ_URL=http://load-balancer/cli2rest-varna-tz
     restart: on-failure
 
   frontend:

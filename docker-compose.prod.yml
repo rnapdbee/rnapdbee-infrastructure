@@ -42,3 +42,7 @@ services:
   cli2rest-rnaview:
     deploy:
       replicas: 3
+
+  cli2rest-varna-tz:
+    deploy:
+      replicas: 3
