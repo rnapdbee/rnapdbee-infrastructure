@@ -93,11 +93,21 @@ services:
       replicas: 1
     restart: on-failure
 
+  redis:
+    image: redis:alpine
+    restart: on-failure
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      start_period: 30s
+      start_interval: 1s
+
   adapters:
     build: ./rnapdbee-adapters
     container_name: rnapdbee-adapters-container
     restart: on-failure
     environment:
+      - ADAPTERS_CACHE_TYPE=RedisCache
+      - ADAPTERS_REDIS_URL=redis://redis:6379/0
       - CLI2REST_BARNABA_URL=http://load-balancer/cli2rest-barnaba
       - CLI2REST_BPNET_URL=http://load-balancer/cli2rest-bpnet
       - CLI2REST_FR3D_URL=http://load-balancer/cli2rest-fr3d
@@ -108,6 +118,8 @@ services:
       - CLI2REST_RNAVIEW_URL=http://load-balancer/cli2rest-rnaview
     depends_on:
       load-balancer:
+        condition: service_healthy
+      redis:
         condition: service_healthy
 
   backend:
