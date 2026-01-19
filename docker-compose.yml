@@ -8,7 +8,7 @@ services:
       - MONGO_INITDB_ROOT_PASSWORD=Xdy0s3XvTLBxACdJrAfb
     volumes:
       - rnapdbee-mongoDB-volume:/data/db
-    restart: on-failure
+    restart: always
 
   load-balancer:
     image: nginx:alpine
@@ -37,65 +37,65 @@ services:
       test: ["CMD", "curl", "-f", "http://localhost/"]
       start_period: 30s
       start_interval: 1s
-    restart: on-failure
+    restart: always
 
   cli2rest-barnaba:
     image: ghcr.io/tzok/cli2rest-barnaba
     deploy:
       replicas: 1
-    restart: on-failure
+    restart: always
 
   cli2rest-bpnet:
     image: ghcr.io/tzok/cli2rest-bpnet
     deploy:
       replicas: 1
-    restart: on-failure
+    restart: always
 
   cli2rest-fr3d:
     image: ghcr.io/tzok/cli2rest-fr3d
     deploy:
       replicas: 1
-    restart: on-failure
+    restart: always
 
   cli2rest-inkscape:
     image: ghcr.io/tzok/cli2rest-inkscape
     deploy:
       replicas: 1
-    restart: on-failure
+    restart: always
 
   cli2rest-maxit:
     image: ghcr.io/tzok/cli2rest-maxit
     deploy:
       replicas: 1
-    restart: on-failure
+    restart: always
 
   cli2rest-mc-annotate:
     image: ghcr.io/tzok/cli2rest-mc-annotate
     deploy:
       replicas: 1
-    restart: on-failure
+    restart: always
 
   cli2rest-rchie:
     image: ghcr.io/tzok/cli2rest-rchie
     deploy:
       replicas: 1
-    restart: on-failure
+    restart: always
 
   cli2rest-rnaview:
     image: ghcr.io/tzok/cli2rest-rnaview
     deploy:
       replicas: 1
-    restart: on-failure
+    restart: always
 
   cli2rest-varna-tz:
     image: ghcr.io/tzok/cli2rest-varna-tz
     deploy:
       replicas: 1
-    restart: on-failure
+    restart: always
 
   redis:
     image: redis:alpine
-    restart: on-failure
+    restart: always
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
       start_period: 30s
@@ -104,7 +104,7 @@ services:
   adapters:
     build: ./rnapdbee-adapters
     container_name: rnapdbee-adapters-container
-    restart: on-failure
+    restart: always
     environment:
       - ADAPTERS_CACHE_TYPE=RedisCache
       - ADAPTERS_REDIS_URL=redis://redis:6379/0
@@ -140,18 +140,18 @@ services:
       - CLI2REST_INKSCAPE_URL=http://load-balancer/cli2rest-inkscape
     volumes:
       - rnapdbee-backend-volume:/images
-    restart: on-failure
+    restart: always
 
   engine:
     build: ./rnapdbee-engine
     container_name: rnapdbee-engine-container
     environment:
       - CLI2REST_VARNA_TZ_URL=http://load-balancer/cli2rest-varna-tz
-    restart: on-failure
+    restart: always
 
   frontend:
     container_name: rnapdbee-frontend-container
-    restart: on-failure
+    restart: always
 
 volumes:
   rnapdbee-mongoDB-volume:

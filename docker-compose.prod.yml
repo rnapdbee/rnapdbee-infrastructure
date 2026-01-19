@@ -11,6 +11,12 @@ services:
     ports:
       - "4200:80"
 
+  engine:
+    deploy:
+      resources:
+        limits:
+          memory: "6G"
+
   cli2rest-barnaba:
     deploy:
       replicas: 3
