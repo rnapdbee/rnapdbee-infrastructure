@@ -108,6 +108,7 @@ services:
     environment:
       - ADAPTERS_CACHE_TYPE=RedisCache
       - ADAPTERS_REDIS_URL=redis://redis:6379/0
+      - ADAPTERS_FLASK_LOG_LEVEL=INFO
       - CLI2REST_BARNABA_URL=http://load-balancer/cli2rest-barnaba
       - CLI2REST_BPNET_URL=http://load-balancer/cli2rest-bpnet
       - CLI2REST_FR3D_URL=http://load-balancer/cli2rest-fr3d
