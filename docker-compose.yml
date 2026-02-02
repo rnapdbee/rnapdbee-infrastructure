@@ -31,6 +31,8 @@ services:
         condition: service_healthy
       cli2rest-rnaview:
         condition: service_healthy
+      cli2rest-rnapolis:
+        condition: service_healthy
       cli2rest-varna-tz:
         condition: service_healthy
     healthcheck:
@@ -83,6 +85,12 @@ services:
 
   cli2rest-rnaview:
     image: ghcr.io/tzok/cli2rest-rnaview
+    deploy:
+      replicas: 1
+    restart: always
+
+  cli2rest-rnapolis:
+    image: ghcr.io/tzok/cli2rest-rnapolis
     deploy:
       replicas: 1
     restart: always
@@ -148,6 +156,7 @@ services:
     container_name: rnapdbee-engine-container
     environment:
       - CLI2REST_VARNA_TZ_URL=http://load-balancer/cli2rest-varna-tz
+      - CLI2REST_RNAPOLIS_URL=http://load-balancer/cli2rest-rnapolis
     restart: always
 
   frontend:
