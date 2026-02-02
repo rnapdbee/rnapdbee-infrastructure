@@ -49,6 +49,10 @@ services:
     deploy:
       replicas: 3
 
+  cli2rest-rnapolis:
+    deploy:
+      replicas: 3
+
   cli2rest-varna-tz:
     deploy:
       replicas: 3
