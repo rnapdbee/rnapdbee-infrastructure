@@ -1,7 +1,22 @@
 services:
+  mongoDB:
+    command: mongod --wiredTigerCacheSizeGB 1
+    deploy:
+      resources:
+        limits:
+          memory: "2G"
+        reservations:
+          memory: "1G"
+
   backend:
     ports:
       - "8080:8080"
+    deploy:
+      resources:
+        limits:
+          memory: "768M"
+        reservations:
+          memory: "384M"
 
   frontend:
     build:
@@ -10,49 +25,76 @@ services:
         BUILD_CONF: production
     ports:
       - "4200:80"
+    deploy:
+      resources:
+        limits:
+          memory: "128M"
 
   engine:
     deploy:
       resources:
         limits:
-          memory: "12G"
+          memory: "11G"
+        reservations:
+          memory: "10G"
+
+  adapters:
+    deploy:
+      resources:
+        limits:
+          memory: "1536M"
+        reservations:
+          memory: "512M"
+
+  redis:
+    command: redis-server --maxmemory 128mb --maxmemory-policy allkeys-lru
+    deploy:
+      resources:
+        limits:
+          memory: "256M"
+
+  load-balancer:
+    deploy:
+      resources:
+        limits:
+          memory: "128M"
 
   cli2rest-barnaba:
     deploy:
-      replicas: 3
+      replicas: 1
 
   cli2rest-bpnet:
     deploy:
-      replicas: 3
+      replicas: 1
 
   cli2rest-fr3d:
     deploy:
-      replicas: 3
+      replicas: 1
 
   cli2rest-inkscape:
     deploy:
-      replicas: 3
+      replicas: 1
 
   cli2rest-maxit:
     deploy:
-      replicas: 3
+      replicas: 1
 
   cli2rest-mc-annotate:
     deploy:
-      replicas: 3
+      replicas: 1
 
   cli2rest-rchie:
     deploy:
-      replicas: 3
+      replicas: 1
 
   cli2rest-rnaview:
     deploy:
-      replicas: 3
+      replicas: 1
 
   cli2rest-rnapolis:
     deploy:
-      replicas: 3
+      replicas: 1
 
   cli2rest-varna-tz:
     deploy:
-      replicas: 3
+      replicas: 1
