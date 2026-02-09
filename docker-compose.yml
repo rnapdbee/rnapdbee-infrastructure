@@ -42,61 +42,61 @@ services:
     restart: always
 
   cli2rest-barnaba:
-    image: ghcr.io/tzok/cli2rest-barnaba
+    image: "ghcr.io/tzok/cli2rest-barnaba:master-48ac4a9-r20260209105246"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-bpnet:
-    image: ghcr.io/tzok/cli2rest-bpnet
+    image: "ghcr.io/tzok/cli2rest-bpnet:master-6fd9ebc-r20260208013421"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-fr3d:
-    image: ghcr.io/tzok/cli2rest-fr3d
+    image: "ghcr.io/tzok/cli2rest-fr3d:latest-1626326"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-inkscape:
-    image: ghcr.io/tzok/cli2rest-inkscape
+    image: "ghcr.io/tzok/cli2rest-inkscape:1.4-6-r20260208013801"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-maxit:
-    image: ghcr.io/tzok/cli2rest-maxit
+    image: "ghcr.io/tzok/cli2rest-maxit:11.400-r20260209105248"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-mc-annotate:
-    image: ghcr.io/tzok/cli2rest-mc-annotate
+    image: "ghcr.io/tzok/cli2rest-mc-annotate:1.6.2-r20260208013227"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-rchie:
-    image: ghcr.io/tzok/cli2rest-rchie
+    image: "ghcr.io/tzok/cli2rest-rchie:1.38.0_0.9.5-r20260209105252"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-rnaview:
-    image: ghcr.io/tzok/cli2rest-rnaview
+    image: "ghcr.io/tzok/cli2rest-rnaview:v2.0.0-r20260208013757"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-rnapolis:
-    image: ghcr.io/tzok/cli2rest-rnapolis
+    image: "ghcr.io/tzok/cli2rest-rnapolis:0.14.1"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-varna-tz:
-    image: ghcr.io/tzok/cli2rest-varna-tz
+    image: "ghcr.io/tzok/cli2rest-varna-tz:1.5.0_0.9.5-r20260208013543"
     deploy:
       replicas: 1
     restart: always
