@@ -90,7 +90,7 @@ services:
     restart: always
 
   cli2rest-rnapolis:
-    image: "ghcr.io/tzok/cli2rest-rnapolis:0.14.1"
+    image: "ghcr.io/tzok/cli2rest-rnapolis:0.14.2"
     deploy:
       replicas: 1
     restart: always
