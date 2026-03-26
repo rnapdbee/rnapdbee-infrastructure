@@ -42,9 +42,9 @@ services:
     deploy:
       resources:
         limits:
-          memory: "1536M"
+          memory: "3G"
         reservations:
-          memory: "512M"
+          memory: "1G"
 
   redis:
     command: redis-server --maxmemory 128mb --maxmemory-policy allkeys-lru
