@@ -98,3 +98,7 @@ services:
   cli2rest-varna-tz:
     deploy:
       replicas: 1
+
+  nucleosize:
+    deploy:
+      replicas: 1
