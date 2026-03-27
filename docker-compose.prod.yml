@@ -100,5 +100,7 @@ services:
       replicas: 1
 
   nucleosize:
+    ports:
+      - "8000:8000"
     deploy:
       replicas: 1
