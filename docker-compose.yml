@@ -107,6 +107,8 @@ services:
     image: "ghcr.io/tzok/nucleosize:1.0.1"
     deploy:
       replicas: 1
+    volumes:
+      - pdb_data:/data
     restart: always
 
   redis:
@@ -174,3 +176,4 @@ services:
 volumes:
   rnapdbee-mongoDB-volume:
   rnapdbee-backend-volume:
+  pdb_data:
