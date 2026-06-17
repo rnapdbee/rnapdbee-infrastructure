@@ -106,7 +106,7 @@ services:
     restart: always
 
   cli2rest-rnapuzzler:
-    image: "ghcr.io/tzok/cli2rest-rnapuzzler:base-ae0ed327b935_vienna-2.7.2-1_svgcleaner-0.9.5"
+    image: "ghcr.io/tzok/cli2rest-rnapuzzler:base-ae0ed327b935_vienna-2.7.2-1_svgcleaner-0.9.5-r20260617093015"
     deploy:
       replicas: 1
     restart: always
@@ -135,6 +135,7 @@ services:
       - ADAPTERS_CACHE_TYPE=RedisCache
       - ADAPTERS_REDIS_URL=redis://redis:6379/0
       - ADAPTERS_FLASK_LOG_LEVEL=INFO
+      - ADAPTERS_RNAPUZZLER_LOG_JSON=false
       - CLI2REST_BARNABA_URL=http://load-balancer/cli2rest-barnaba
       - CLI2REST_BPNET_URL=http://load-balancer/cli2rest-bpnet
       - CLI2REST_FR3D_URL=http://load-balancer/cli2rest-fr3d
