@@ -99,6 +99,10 @@ services:
     deploy:
       replicas: 1
 
+  cli2rest-rnapuzzler:
+    deploy:
+      replicas: 1
+
   nucleosize:
     ports:
       - "8000:8000"

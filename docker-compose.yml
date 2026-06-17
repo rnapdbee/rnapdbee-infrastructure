@@ -35,6 +35,8 @@ services:
         condition: service_healthy
       cli2rest-varna-tz:
         condition: service_healthy
+      cli2rest-rnapuzzler:
+        condition: service_healthy
       nucleosize:
         condition: service_healthy
     healthcheck:
@@ -98,7 +100,13 @@ services:
     restart: always
 
   cli2rest-varna-tz:
-    image: "ghcr.io/tzok/cli2rest-varna-tz:1.5.0_0.9.5-r20260208013543"
+    image: "ghcr.io/tzok/cli2rest-varna-tz:base-ae0ed327b935_varna-1.5.8_svgcleaner-0.9.5"
+    deploy:
+      replicas: 1
+    restart: always
+
+  cli2rest-rnapuzzler:
+    image: "ghcr.io/tzok/cli2rest-rnapuzzler:base-ae0ed327b935_vienna-2.7.2-1_svgcleaner-0.9.5"
     deploy:
       replicas: 1
     restart: always
@@ -135,6 +143,7 @@ services:
       - CLI2REST_MCANNOTATE_URL=http://load-balancer/cli2rest-mc-annotate
       - CLI2REST_RCHIE_URL=http://load-balancer/cli2rest-rchie
       - CLI2REST_RNAVIEW_URL=http://load-balancer/cli2rest-rnaview
+      - CLI2REST_RNAPUZZLER_URL=http://load-balancer/cli2rest-rnapuzzler
     depends_on:
       load-balancer:
         condition: service_healthy
