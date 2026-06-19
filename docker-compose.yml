@@ -100,7 +100,7 @@ services:
     restart: always
 
   cli2rest-varna-tz:
-    image: "ghcr.io/tzok/cli2rest-varna-tz:base-ae0ed327b935_varna-1.5.8_svgcleaner-0.9.5"
+    image: "ghcr.io/tzok/cli2rest-varna-tz:base-626c843a3cdb_varna-1.6.0_svgcleaner-0.9.5-r20260619150438"
     deploy:
       replicas: 1
     restart: always
