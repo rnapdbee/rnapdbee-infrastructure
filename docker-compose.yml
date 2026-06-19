@@ -106,7 +106,7 @@ services:
     restart: always
 
   cli2rest-rnapuzzler:
-    image: "ghcr.io/tzok/cli2rest-rnapuzzler:base-ae0ed327b935_vienna-2.7.2-1_svgcleaner-0.9.5-r20260617151307"
+    image: "ghcr.io/tzok/cli2rest-rnapuzzler:base-626c843a3cdb_vienna-2.7.2-1_svgcleaner-0.9.5-r20260619134040"
     deploy:
       replicas: 1
     restart: always
