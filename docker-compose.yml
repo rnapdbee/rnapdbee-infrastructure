@@ -157,12 +157,12 @@ services:
     depends_on:
       - mongoDB
     environment:
-      - spring_data_mongodb_authentication-database=admin
-      - spring_data_mongodb_username=rnapdbee
-      - spring_data_mongodb_password=Xdy0s3XvTLBxACdJrAfb
-      - spring_data_mongodb_database=backend-db
-      - spring_data_mongodb_port=27017
-      - spring_data_mongodb_host=rnapdbee-mongoDB-container
+      - spring_mongodb_authentication-database=admin
+      - spring_mongodb_username=rnapdbee
+      - spring_mongodb_password=Xdy0s3XvTLBxACdJrAfb
+      - spring_mongodb_database=backend-db
+      - spring_mongodb_port=27017
+      - spring_mongodb_host=rnapdbee-mongoDB-container
       - rnapdbee_engine_global_host=http://rnapdbee-engine-container:8081/calculation-api/
       - document_storage_days=14
       - svg_images_directory_path=/images
