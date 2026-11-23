@@ -16,3 +16,4 @@ services:
       context: ./rnapdbee-frontend
       args:
         BUILD_CONF: development
+        API_HOST: ${API_HOST:-http://localhost}

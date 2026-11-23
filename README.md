@@ -32,6 +32,14 @@ docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
 
 The development environment runs a reverse proxy as part of Docker Compose without HTTPS support. The application will be available at [http://localhost](http://localhost).
 
+The frontend's API host defaults to `http://localhost`. When the development stack runs on a remote machine (e.g. a VM) and is accessed from another computer, override it with the hostname or IP address that the user's browser can reach:
+
+```bash
+API_HOST=http://<vm-hostname-or-ip> docker compose -f docker-compose.yml -f docker-compose.dev.yml up --build
+```
+
+Note that `API_HOST` is a build-time setting baked into the frontend bundle, so the frontend image must be rebuilt (`--build`) after changing it. The given host must be reachable from the browser, not just from inside the Docker network.
+
 To stop the services, use:
 
 ```bash
