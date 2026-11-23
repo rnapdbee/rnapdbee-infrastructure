@@ -46,67 +46,67 @@ services:
     restart: always
 
   cli2rest-barnaba:
-    image: "ghcr.io/tzok/cli2rest-barnaba:master-48ac4a9-r20260209105246"
+    image: "ghcr.io/tzok/cli2rest-barnaba:base-c7e2beb9f8a6_master-48ac4a9_9952e031a0cc"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-bpnet:
-    image: "ghcr.io/tzok/cli2rest-bpnet:master-6fd9ebc-r20260208013421"
+    image: "ghcr.io/tzok/cli2rest-bpnet:base-877f12bf3930_bpnet-6fd9ebc_metbp-e12d8c9"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-fr3d:
-    image: "ghcr.io/tzok/cli2rest-fr3d:latest-1626326"
+    image: "ghcr.io/tzok/cli2rest-fr3d:base-877f12bf3930_main-494a81c_09d59a3ee8f6"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-inkscape:
-    image: "ghcr.io/tzok/cli2rest-inkscape:1.4-6-r20260208013801"
+    image: "ghcr.io/tzok/cli2rest-inkscape:base-877f12bf3930_inkscape-1.4-6"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-maxit:
-    image: "ghcr.io/tzok/cli2rest-maxit:11.400-r20260209105248"
+    image: "ghcr.io/tzok/cli2rest-maxit:base-877f12bf3930_maxit-11.400"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-mc-annotate:
-    image: "ghcr.io/tzok/cli2rest-mc-annotate:1.6.2-r20260208013227"
+    image: "ghcr.io/tzok/cli2rest-mc-annotate:base-e8abc3307d3b_mc-annotate-1.6.2_sha-b34011bf5b49c3e4b761aee5fee6aa730bc48c442df307d400ebf210643a4e81"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-rchie:
-    image: "ghcr.io/tzok/cli2rest-rchie:1.38.0_0.9.5-r20260209105252"
+    image: "ghcr.io/tzok/cli2rest-rchie:base-877f12bf3930_bioc-3.22_r4rna-1.38.0_svgcleaner-0.9.5"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-rnaview:
-    image: "ghcr.io/tzok/cli2rest-rnaview:v2.0.0-r20260208013757"
+    image: "ghcr.io/tzok/cli2rest-rnaview:base-877f12bf3930_rnaview-v2.0.0"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-rnapolis:
-    image: "ghcr.io/tzok/cli2rest-rnapolis:0.14.2"
+    image: "ghcr.io/tzok/cli2rest-rnapolis:base-877f12bf3930_rnapolis-0.17.0_bdec2a5e4a75"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-varna-tz:
-    image: "ghcr.io/tzok/cli2rest-varna-tz:base-626c843a3cdb_varna-1.6.0_svgcleaner-0.9.5-r20260619150438"
+    image: "ghcr.io/tzok/cli2rest-varna-tz:base-877f12bf3930_varna-1.6.0_svgcleaner-0.9.5"
     deploy:
       replicas: 1
     restart: always
 
   cli2rest-rnapuzzler:
-    image: "ghcr.io/tzok/cli2rest-rnapuzzler:base-626c843a3cdb_vienna-2.7.2-1_svgcleaner-0.9.5-r20260619134040"
+    image: "ghcr.io/tzok/cli2rest-rnapuzzler:base-877f12bf3930_vienna-2.8.0-1_svgcleaner-0.9.5"
     deploy:
       replicas: 1
     restart: always
